@@ -1,10 +1,14 @@
 package com.fuzetea.hibernatespringbootvs.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +22,10 @@ public class Country {
 
     @Column(name = "country_name")
     private String countryname;
+
+    @OneToMany
+    @JoinColumn(name = "country_name")
+    private Set<City> cities;
 
     public int getId() {
         return id;
