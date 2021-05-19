@@ -2,6 +2,7 @@ package com.fuzetea.hibernatespringbootvs.controllers;
 
 import java.util.List;
 
+import com.fuzetea.hibernatespringbootvs.Pojos.CityRequest;
 import com.fuzetea.hibernatespringbootvs.entities.City;
 import com.fuzetea.hibernatespringbootvs.services.CityService;
 
@@ -37,5 +38,10 @@ public class HomeController {
     @GetMapping("getcity")
     public City getCity(String cityName){
         return cityService.getCity(cityName);
+    }
+
+    @PostMapping("savecity")
+    public City addCity(@RequestBody CityRequest cityrequest){
+        return cityService.addCity(cityrequest);
     }
 }
